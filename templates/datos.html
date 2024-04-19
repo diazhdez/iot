@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<!--  -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!--  -->
+	<title>Reportes</title>
+	<!--  -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/usuario.css') }}" />
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark">
+		<a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/arduino.1024x699.png') }}"
+				alt="Logo" style="width: 70px; height: auto" /></a>
+	</nav>
+	<div class="container">
+		<h1 class="text-center mb-5 text-white">Reportes</h1>
+	</div>
+
+	<div class="container">
+		<table class="table table-bordered" style="background-color: rgba(86, 86, 86, 0.221); color: white">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Ventilador</th>
+					<th scope="col">Encendido</th>
+					<th scope="col">Apagado</th>
+					<th scope="col">Duración</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for dato in datos %}
+				<tr>
+					<th scope="row">{{ dato.id }}</th>
+					<td>{{ dato.ventilador }}</td>
+					<td>{{ dato.encendido }}</td>
+					<td>{{ dato.apagado }}</td>
+					<td>{{ dato.tiempo_encendido }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</body>
+
+</html>

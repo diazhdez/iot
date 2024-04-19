@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<!--  -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!--  -->
+	<title>Encender Ventiladores</title>
+	<!--  -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/usuario.css') }}">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark">
+		<a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/arduino.1024x699.png') }}"
+				alt="Logo" style="width: 70px; height: auto;"></a>
+	</nav>
+	<div class="container">
+		<h1 class="text-center mb-5 text-white">¿Qué ventilador quieres encender?</h1>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="buttons-container">
+				<div style="object-position: center;">
+					<span style="color: white;">Ventilador 1:</span>
+					<br>
+					<button class="boton mt-3" onclick="toggleVentilador(1)" id="btnVentilador1">
+						Encender
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="buttons-container">
+				<div style="object-position: center;">
+					<span style="color: white;">Ventilador 2:</span>
+					<br>
+					<button class="boton mt-3" onclick="toggleVentilador(2)" id="btnVentilador2">
+						Encender
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		function toggleVentilador(ventilador) {
+			var btn = document.getElementById("btnVentilador" + ventilador);
+			if (btn.innerHTML === "Encender") {
+				btn.innerHTML = "Apagar";
+				// Hacer la petición para encender el ventilador
+				fetch(`/encender_ventilador/${ventilador}`);
+			} else {
+				btn.innerHTML = "Encender";
+				// Hacer la petición para apagar el ventilador
+				fetch(`/apagar_ventilador/${ventilador}`);
+			}
+		}
+	</script>
+</body>
+
+</html>

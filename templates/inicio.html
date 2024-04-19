@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!--  -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--  -->
+    <title>Control de ventiladores</title>
+    <!--  -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/usuario.css') }}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/arduino.1024x699.png') }}"
+                alt="Logo" style="width: 70px; height: auto;"></a>
+    </nav>
+
+    <div class="container">
+        <h1 class="text-center mb-5 text-white">Sistema de Control de Enfriadores de Caldera con Arduino</h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <p>El proyecto de "Sistema de Control de Enfriadores de Caldera con Arduino" se enfoca en desarrollar una
+                solución automatizada y versátil para controlar los enfriadores (ventiladores) de una caldera de manera
+                eficiente y segura. Utilizando la plataforma Arduino y una combinación de módulos, como Ethernet, LCD y
+                relé, este proyecto ofrece una solución integral para el monitoreo y control de los enfriadores.</p>
+
+            <p>El objetivo principal de este proyecto es proporcionar una interfaz intuitiva y confiable que permita a
+                los operadores supervisar el estado de los enfriadores, activarlos cuando sea necesario y generar
+                informes sobre el rendimiento del sistema. Con esta solución, se busca mejorar la eficiencia operativa,
+                reducir los costos de mantenimiento y garantizar un funcionamiento seguro y confiable de la caldera en
+                entornos industriales.</p>
+
+            <p>Materiales:</p>
+            <p>-Arduino: Placa microcontroladora programable<br>
+                -Aplicación Arduino: Entorno de desarrollo integrado (IDE) para programar Arduino<br>
+                -Módulo Ethernet: Permite la comunicación del sistema con una red<br>
+                -Módulo Relé: Controla el encendido y apagado de dispositivos eléctricos<br>
+                -Módulo LCD: Muestra información en una pantalla LCD<br>
+                -2 Ventiladores de 120 V: Enfrían la caldera</p>
+
+            <p>Objetivos:</p>
+            <p>-Incorporar la capacidad de generar informes periódicos sobre el rendimiento del sistema, incluyendo
+                datos
+                como la frecuencia de activación de los enfriadore<br>
+                -Utilizar un módulo Ethernet para permitir la conectividad en red y la comunicación remota con el
+                sistema, lo que facilita el monitoreo y control desde ubicaciones remotas.<br>
+                -Desarrollar una interfaz de usuario intuitiva y fácil de usar que permita a los operadores supervisar
+                el estado de los enfriadores, activarlos manualmente si es necesario</p>
+
+            <div class="buttons-container">
+                <a href="{{ url_for('Encender_Ventiladores') }}"><button class="boton"><span></span>Encender
+                        Ventiladores</button></a>
+            </div>
+            <div class="buttons-container">
+                <a href="{{ url_for('Datos') }}"><button class="boton"><span></span>Reportes</button></a>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
